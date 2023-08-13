@@ -104,8 +104,12 @@ alias ll="exa -al --color=always --group-directories-first"
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias weather="curl wttr.in"
 
+alias xrandr_dm="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --rate 59.96 --output HDMI-1-0 --mode 1920x1080 --pos 1920x0 --rotate normal"
+alias xrandr_sm="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --rate 59.96 --output HDMI-1-0 --off"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
