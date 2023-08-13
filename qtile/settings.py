@@ -1,3 +1,33 @@
+import os
+
+from libqtile.utils import guess_terminal
+
+
+terminal = guess_terminal()
+mod = "mod4" # xmodmap
+
+brightness_step = 10
+
+VOLUME_SCRIPT = os.path.expanduser('~/bin/volume-notify')
+
+commands = dict(
+    brightness_down=f"brightnessctl set {brightness_step}%-",
+    brightness_up=f"brightnessctl set {brightness_step}%+",
+    launch="rofi -show drun",
+    lock="dm-tool lock",
+    next_audio="playerctl next",
+    play_pause_audio="playerctl play-pause",
+    poweroff="poweroff",
+    prev_audio="playerctl previous",
+    reboot="reboot",
+    screenshot="flameshot gui",
+    stop_audio="playerctl stop",
+    switch_window="rofi -show window",
+    volume_down=f"sh {VOLUME_SCRIPT} down",
+    volume_mute=f"sh {VOLUME_SCRIPT} mute",
+    volume_up=f"sh {VOLUME_SCRIPT} up",
+)
+
 colours = dict(
     dark="#1f2329",
     lighter="#dcdcdc",
