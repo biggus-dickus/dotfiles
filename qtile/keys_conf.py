@@ -1,7 +1,24 @@
+from libqtile import extension
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
 from settings import commands, mod, terminal
+
+def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i)
+
+def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group, switch_group=switch_group)
+        if switch_screen == True:
+            qtile.cmd_to_screen(i + 1)
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -19,6 +36,10 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+
+    # Switch focused window between screens
+    Key([mod, "shift"], "period", lazy.function(window_to_previous_screen, switch_screen=True)),
+    Key([mod], "period", lazy.function(window_to_next_screen, switch_screen=True)),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -63,14 +84,16 @@ keys = [
     Key([mod], "p", lazy.spawn(commands['launch']), desc='Run the application launcher'),
     Key(["mod1"], "Tab", lazy.spawn(commands['switch_window']), desc='Open the window switcher'),
 
-    # Multimedia keys (required packages must be installed: amixer, dunst, playerctl)
+    # Multimedia keys (required packages: amixer, dunst, playerctl)
     Key([], "XF86AudioMute", lazy.spawn(commands['volume_mute']), desc='Mute volume'),
     Key([], "XF86AudioLowerVolume", lazy.spawn(commands['volume_down']), 'Turn volume down'),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(commands['volume_up']), 'Turn volume up'),
+    Key([], "XF86AudioMicMute", lazy.spawn(commands['toggle_mute_mic']), desc='Mute microphone'),
 
-    Key([], "XF86AudioPlay", lazy.spawn(commands['play_pause_audio']), desc="Play/Pause player"),
-    Key([], "XF86AudioNext", lazy.spawn(commands['next_audio']), desc="Skip to next"),
-    Key([], "XF86AudioPrev", lazy.spawn(commands['prev_audio']), desc="Skip to previous"),
+    Key([], "XF86AudioPlay", lazy.spawn(commands['play_pause_audio']), desc='Play/Pause player'),
+    Key([], "XF86AudioStop", lazy.spawn(commands['stop_audio']), desc='Stop the audio'),
+    Key([], "XF86AudioNext", lazy.spawn(commands['next_audio']), desc='Skip to next'),
+    Key([], "XF86AudioPrev", lazy.spawn(commands['prev_audio']), desc='Skip to previous'),
     
     Key([], "XF86MonBrightnessDown", lazy.spawn(commands['brightness_down'])),
     Key([], "XF86MonBrightnessUp", lazy.spawn(commands['brightness_up'])),
@@ -82,9 +105,21 @@ keys = [
     Key(["mod1"], "Shift_L", lazy.widget["keyboardlayout"].next_keyboard(), desc='Next keyboard layout'),
     Key([mod, "mod1"], "l", lazy.spawn(commands['lock']), desc='Lock screen'),
     Key(["control"], "backslash", lazy.spawn(commands['screenshot']), desc='Capture a region using the GUI'),
+    Key([mod, "control", "shift"], "q", lazy.spawn(commands['poweroff']), desc='Shutdown'),
+
+    # CommandSet
+    Key([mod], "x", lazy.run_extension(extension.CommandSet(
+        commands={
+            'Logout': commands['logout'],
+            'Suspend': commands['suspend'],
+            'Restart': commands['reboot'],
+            'Shutdown': commands['poweroff'],
+        },
+        dmenu_lines=4,
+    ))),
 ]
 
-# swich groups
+# Swich groups
 for i in [str(x) for x in range(1, 10)]:
     keys.extend(
         [

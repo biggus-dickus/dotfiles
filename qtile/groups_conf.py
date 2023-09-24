@@ -44,7 +44,6 @@ groups = [
     Group(
         "9",
         label="\uf03d",
-        layout='max',
         matches=[Match(wm_class=['zoom'])],
     ),
 ]
@@ -57,7 +56,7 @@ groups.append(
             ),
             DropDown(
                 # Must install khal
-                'calendar', terminal + " --hold -e khal calendar", x=0.71, width=0.25
+                'calendar', terminal + " --hold -e khal calendar", x=0.70, width=0.25
             ),
         ]
     ),

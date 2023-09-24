@@ -23,12 +23,12 @@ from widgets_conf import BAR_HEIGHT, widgets
 extension_defaults = widget_defaults.copy()
 
 def get_widgets(widget_list):
-  return bar.Bar(widget_list, BAR_HEIGHT, opacity=0.9)
+  return bar.Bar(widget_list, BAR_HEIGHT, opacity=0.8)
 
 screens = [
     Screen(
         top=get_widgets(widgets),
-        wallpaper='~/Pictures/wallpapers/0253.jpg',
+        wallpaper='~/Pictures/wallpapers/Traful-Lake.jpg',
         wallpaper_mode='fill',
     ),
 ]
@@ -52,9 +52,6 @@ if connected_monitors > 1:
             )
         )
 
-    for i in range(connected_monitors):
-        keys.extend([Key([mod, "mod1"], str(i+1), lazy.window.toscreen(i))])
-
 
 # Hooks
 @hook.subscribe.restart
@@ -63,8 +60,8 @@ def delete_cache():
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([home])
+    autolaunch = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.Popen([autolaunch])
 
 @hook.subscribe.shutdown
 def stop_apps():

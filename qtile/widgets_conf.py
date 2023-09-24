@@ -25,11 +25,15 @@ widgets = [
         urgent_text=colours['error'],
     ),
     SEPARATOR,
-    widget.CurrentLayout(
-        foreground=colours['accent'],
-    ),
+    widget.CurrentLayoutIcon(scale=0.75),
     widget.Prompt(),
     widget.WindowName(max_chars=50),
+    widget.Net(
+        foreground=colours['accent'],
+        format="{down} ↓↑{up}",
+        interface='wlp4s0',
+    ),
+    SEPARATOR,
     widget.CPU(
         foreground=colours['highlight'],
         update_interval=DEFAULT_UPDATE_INTERVAL,
@@ -41,12 +45,6 @@ widgets = [
         update_interval=DEFAULT_UPDATE_INTERVAL,
     ),
     SEPARATOR,
-    widget.Net(
-        foreground=colours['accent'],
-        format="{down} ↓↑{up}",
-        interface='wlp4s0',
-    ),
-    SEPARATOR,
     widget.Wlan( # requires python-iwlib
         disconnected_message='off',
         foreground=colours['lighter'],
@@ -54,14 +52,6 @@ widgets = [
         interface='wlp4s0',
         update_interval=DEFAULT_UPDATE_INTERVAL,
     ),
-    # SEPARATOR,
-    # widget.PulseVolume(
-    #     fmt="墳 {}",
-    #     foreground=colours['info'],
-    #     step=5,
-    #     update_interval=0.1,
-    #     volume_app="pavucontrol",
-    # ),
     SEPARATOR,
     widget.Backlight(
         backlight_name="nvidia_wmi_ec_backlight", # ls /sys/class/backlight/
@@ -72,7 +62,7 @@ widgets = [
     ),
     SEPARATOR,
     widget.Battery(
-        foreground=colours['accent'],
+        foreground=colours['info'],
         format="{char} {percent:2.0%}",
         charge_char="",
         discharge_char="",
@@ -95,15 +85,29 @@ widgets = [
             '51.94816,33.93299': 'Svessa'
         },
         format='%t %c',
-        padding=5,
+        padding=3,
         units='m',
         update_interval=1800,
     ),
     SEPARATOR,
     widget.KeyboardLayout(configured_keyboards=['us', 'ru', 'ua']),
-    widget.Spacer(length=3),
-
     # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
     # widget.StatusNotifier(),
     widget.Systray(),
+    # widget.QuickExit(
+    #     countdown_format='{}',
+    #     countdown_start=4,
+    #     default_text='\u23fb',
+    #     fontsize=20,
+    #     foreground=colours['error'],
+    # ),
+    widget.Volume(
+        fontsize=14,
+        fmt="墳 {}",
+        # icons names: audio-volume-high, audio-volume-medium, audio-volume-low, audio-volume-muted
+        # theme_path="~/.local/share/icons/Qogir/24/panel/",
+        padding=5,
+        volume_app='pavucontrol',
+    ),
+    widget.Spacer(length=3),
 ]

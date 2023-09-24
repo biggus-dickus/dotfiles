@@ -113,3 +113,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+
+# bun completions
+[ -s "/home/maxm/.bun/_bun" ] && source "/home/maxm/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
