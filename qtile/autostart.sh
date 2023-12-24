@@ -15,5 +15,5 @@ blueman-applet &
 xsetroot -cursor_name left_ptr # xorg-xsetroot package may not be installed by default
 
 xscreensaver --no-splash &
-setxkbmap -option compose:ralt & # bind Compose key to the right Alt
+setxkbmap -option "compose:ralt" & # bind Compose key to the right Alt
 numlockx & # not installed by default

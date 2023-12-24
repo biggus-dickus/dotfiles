@@ -17,7 +17,6 @@ groups = [
     Group(
         "4",
         label="\ue796",
-        layout='max',
         matches=[Match(wm_class=['jetbrains-webstorm'])],
     ),
     Group(

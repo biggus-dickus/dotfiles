@@ -20,6 +20,7 @@ widgets = [
         other_screen_border=colours['text'],
         this_current_screen_border=colours['highlight'],
         this_screen_border=colours['text'],
+        toggle=False,
         urgent_alert_method='text',
         urgent_border=colours['error'],
         urgent_text=colours['error'],
@@ -30,7 +31,7 @@ widgets = [
     widget.WindowName(max_chars=50),
     widget.Net(
         foreground=colours['accent'],
-        format="{down} ↓↑{up}",
+        format="{down:.0f}{down_suffix} ↓↑{up:.0f}{up_suffix}",
         interface='wlp4s0',
     ),
     SEPARATOR,
