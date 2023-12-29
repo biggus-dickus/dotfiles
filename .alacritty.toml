@@ -1,0 +1,14 @@
+[font]
+size = 8.0
+
+[font.normal]
+family = "Source Code Pro for Powerline"
+style = "Medium"
+
+[window]
+opacity = 0.87
+blur = true
+
+[window.padding]
+x = 5
+y = 5
