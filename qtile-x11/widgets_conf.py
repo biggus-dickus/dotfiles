@@ -42,7 +42,7 @@ widgets = [
     SEPARATOR,
     widget.Memory(
         foreground=colours['success'],
-        format="{MemUsed:.0f} MB",
+        format="{MemUsed:.0f}{mm} {MemPercent:.0f}%",
         update_interval=DEFAULT_UPDATE_INTERVAL,
     ),
     SEPARATOR,
@@ -92,16 +92,7 @@ widgets = [
     ),
     SEPARATOR,
     widget.KeyboardLayout(configured_keyboards=['us', 'ru', 'ua']),
-    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-    # widget.StatusNotifier(),
     widget.Systray(),
-    # widget.QuickExit(
-    #     countdown_format='{}',
-    #     countdown_start=4,
-    #     default_text='\u23fb',
-    #     fontsize=20,
-    #     foreground=colours['error'],
-    # ),
     widget.Volume(
         fontsize=14,
         fmt="墳 {}",

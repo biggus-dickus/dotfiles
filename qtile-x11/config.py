@@ -28,7 +28,7 @@ def get_widgets(widget_list):
 screens = [
     Screen(
         top=get_widgets(widgets),
-        wallpaper='~/Pictures/wallpapers/GeminidoverBluemoonvalley-2000.jpg',
+        wallpaper='~/Pictures/wallpapers/0305.jpg',
         wallpaper_mode='fill',
     ),
 ]
