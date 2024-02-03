@@ -43,7 +43,7 @@ widgets = [
     SEPARATOR,
     widget.Memory(
         foreground=colours['success'],
-        format="{MemUsed:.0f}{mm}  {MemPercent:.0f}%",
+        format="{MemUsed:.0f}{mm} {MemPercent:.0f}%",
         update_interval=DEFAULT_UPDATE_INTERVAL,
     ),
     SEPARATOR,

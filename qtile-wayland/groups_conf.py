@@ -1,3 +1,4 @@
+import re
 from libqtile.config import DropDown, Group, Match, ScratchPad
 
 from settings import terminal
@@ -9,43 +10,43 @@ groups = [
     Group(
         "2",
         label="\uf268",
-        matches=[Match(wm_class=['Chromium'])],
+        matches=[Match(wm_class='chromium')],
     ),
     Group(
         "3",
         label="\uf269",
-        matches=[Match(wm_class=['firefox'])],
+        matches=[Match(wm_class='firefox')],
     ),
     Group(
         "4",
         label="\uf121",
-        matches=[Match(wm_class=['jetbrains-webstorm'])],
+        matches=[Match(wm_class='jetbrains-webstorm')],
     ),
     Group(
         "5",
         label="\uf198",
-        matches=[Match(wm_class=['slack'])],
+        matches=[Match(wm_class='slack')],
     ),
     Group(
         "6",
         label="\uf118",
-        matches=[Match(wm_class=['Lxappearance', 'Nitrogen'])],
+        matches=[Match(wm_class=re.compile(r"^(Lxappearance|Nitrogen)$"))],
     ),
     Group(
         "7",
         label="\uf03e",
-        matches=[Match(wm_class=['ristretto', 'gimp-2.10'])],
+        matches=[Match(wm_class=re.compile(r"^(ristretto|gimp\-2\.10)$"))],
     ),
     Group(
         "8",
         label="\uf1b6",
         layout='max',
-        matches=[Match(wm_class=['Steam', 'vlc'])],
+        matches=[Match(wm_class=re.compile(r"^(Steam|vlc)$"))],
     ),
     Group(
         "9",
         label="\uf03d",
-        matches=[Match(wm_class=['zoom'])],
+        matches=[Match(wm_class='zoom')],
     ),
 ]
 
