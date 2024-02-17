@@ -7,7 +7,7 @@ groups = [
     Group("1", label="\uf120"),
     Group(
         "2",
-        label="\ue743",
+        label="\uf268",
         matches=[Match(wm_class='chromium')],
     ),
     Group(

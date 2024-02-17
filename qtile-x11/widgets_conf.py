@@ -11,8 +11,8 @@ widgets = [
     widget.GroupBox(
         active=colours['highlight'],
         borderwidth=2,
-        center_aligned=False,
         disable_drag=True,
+        font='SauceCodePro Nerd Font Mono',
         fontsize=24,
         highlight_method='line',
         inactive=colours['text'],
@@ -49,7 +49,7 @@ widgets = [
     widget.Wlan( # requires python-iwlib
         disconnected_message='off',
         foreground=colours['lighter'],
-        format="\uf1eb {percent:2.0%}",
+        format="\uf1eb   {percent:2.0%}",
         interface='wlp4s0',
         update_interval=DEFAULT_UPDATE_INTERVAL,
     ),
