@@ -14,7 +14,7 @@ auto_minimize = True
 # In Wayland backend, this can be used to configure input devices.
 # https://docs.qtile.org/en/latest/manual/wayland.html#input-device-configuration
 wl_input_rules = {
-    'type:touchpad': InputConfig(tap=True, natural_scroll=True),
+    'type:touchpad': InputConfig(dwt=True, natural_scroll=True, tap=True),
     'type:keyboard': InputConfig(kb_options="compose:ralt"),
 }
 

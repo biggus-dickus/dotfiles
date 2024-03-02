@@ -106,17 +106,6 @@ keys = [
     Key([mod, "mod1"], "l", lazy.spawn(commands['lock']), desc='Lock screen'),
     Key(["control"], "backslash", lazy.spawn(commands['screenshot']), desc='Capture a region using the GUI'),
     Key([mod, "control", "shift"], "q", lazy.spawn(commands['poweroff']), desc='Shutdown'),
-
-    # CommandSet
-    Key([mod], "x", lazy.run_extension(extension.CommandSet(
-        commands={
-            'Logout': commands['logout'],
-            'Suspend': commands['suspend'],
-            'Restart': commands['reboot'],
-            'Shutdown': commands['poweroff'],
-        },
-        dmenu_lines=4,
-    ))),
 ]
 
 # Swich groups
