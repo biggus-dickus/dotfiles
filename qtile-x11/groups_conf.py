@@ -44,7 +44,7 @@ groups = [
     Group(
         "9",
         label="\uf03d",
-        matches=[Match(wm_class=re.compile(r"^(zoom|roam)$"))],
+        matches=[Match(wm_class=re.compile(r"^(zoom|roam|discord)$"))],
     ),
 ]
 
