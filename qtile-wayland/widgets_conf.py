@@ -83,7 +83,7 @@ widgets = [
     # https://github.com/akkaky/qtile-wttr-widget
     widget.Wttr(
         location={
-            '51.94816,33.93299': 'Svessa'
+            'Kiev': 'Kiev',
         },
         format='%t %c',
         padding=3,
