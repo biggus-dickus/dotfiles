@@ -30,6 +30,7 @@
 #workspaces button {
   padding: 1px 5px;
   border-radius: 50%;
+  margin-right: 4px;
   background-color: rgba(0, 43, 51, .85);
 }
 #workspaces button:not(.focused):hover {

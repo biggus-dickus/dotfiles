@@ -121,7 +121,17 @@ input type:keyboard {
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-#
+
+# Assign apps
+# man 5 sway
+# `swaymsg -t get_tree` to get the app_id
+assign [app_id="chromium"] workspace number 2
+assign [app_id="firefox|floorp"] workspace number 3
+assign [app_id="jetbrains_webstorm"] workspace number 4
+assign [app_id="slack"] workspace number 5
+assign [app_id="steam"] workspace number 8
+
+
 #
 # Workspaces:
 #
