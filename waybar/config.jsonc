@@ -8,16 +8,14 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        //"sway/mode",
-        //"sway/scratchpad",
-        "custom/media"
-    ],
-    "modules-center": [
         "hyprland/window"
     ],
-    "modules-right": [
+    "modules-center": [
         "idle_inhibitor",
-        "pulseaudio",
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
         "network",
         "power-profiles-daemon",
         "cpu",
@@ -26,9 +24,9 @@
         "keyboard-state",
         "battery",
         "battery#bat2",
-        "clock",
-        "bluetooth",
         "hyprland/language",
+        "bluetooth",
+        "pulseaudio",
         "tray",
         "custom/power"
     ],
@@ -61,12 +59,7 @@
       "format-ru": "RU",
       "format-uk": "UK",
       "on-click": "hyprctl switchxkblayout current next",
-      "on-click": "hyprctl switchxkblayout current next",
-      "on-click": "hyprctl switchxkblayout current next",
       "tooltip": false
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "hyprland/window": {
       "max-length": 30
@@ -78,13 +71,6 @@
         "deactivated": ""
       }
     },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
@@ -94,11 +80,10 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "  {avg_frequency}GHz ({usage}%)",
-        "tooltip": false
+        "format": "  {usage}%"
     },
     "memory": {
-        "format": " {used:0.1f}G ({percentage}%)",
+        "format": " {percentage}%",
         "interval": 10
     },
     "temperature": {
@@ -112,7 +97,8 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon}  {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
     },
     "battery": {
         "states": {
@@ -146,16 +132,17 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "   {signalStrength}%",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 30
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "\uf028 {volume}% ",
@@ -170,18 +157,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "bluetooth": {
       "format": "",
@@ -201,5 +176,12 @@
 			  "suspend": "systemctl suspend",
 			  "hibernate": "systemctl hibernate"
 		  }
+    },
+    "custom/weather": {
+      "exec": "${HOME}/.config/waybar/get_weather.sh Kiev+Ukraine",
+      "return-type": "json",
+      "format": "{}",
+      "tooltip": true,
+      "interval": 3600
     }
 }

@@ -1,5 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S hyprland hyprlock hypridle waybar
+sudo pacman -S dunst hyprland hyprlock hypridle waybar wofi
 
 cp -rv ./hypr/* ~/.config
+cp -rf waybar/* ~/.config
