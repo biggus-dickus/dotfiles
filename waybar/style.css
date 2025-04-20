@@ -1,10 +1,10 @@
 /** https://github.com/dpgraham4401/.dotfiles/blob/fedora/sway/.config/waybar/style.css **/
 
 * {
-    border: none;
-    font-family: Roboto, Arial, sans-serif;
-    font-size: 12px;
-    color: #ffffff;
+  border: none;
+  font-family: "Fira Sans Semibold", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
 }
 
 #waybar {

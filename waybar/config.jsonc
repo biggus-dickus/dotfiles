@@ -7,13 +7,13 @@
     "spacing": 4, // Gaps between modules
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
+        "hyprland/workspaces",
+        //"sway/mode",
+        //"sway/scratchpad",
         "custom/media"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -28,27 +28,24 @@
         "battery#bat2",
         "clock",
         "bluetooth",
-        "sway/language",
+        "hyprland/language",
         "tray",
         "custom/power"
     ],
-    // Modules configuration
-    "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
+    "hyprland/workspaces": {
       "format": "{icon}",
+      "on-click": "activate",
       "format-icons": {
         "1": "",
         "2": "",
-        "3": ""
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-      }
+        "3": "",
+        "4": "",
+        "5": "",
+        "urgent": "",
+  //   "active": "",
+        "default": ""
+      },
+      "sort-by-number": true
     },
     "keyboard-state": {
         "numlock": true,
@@ -59,16 +56,27 @@
             "unlocked": ""
         }
     },
-    "sway/language": {
-      "format": "{shortDescription}",
-      "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    "hyprland/language": {
+      "format-en": "EN",
+      "format-ru": "RU",
+      "format-uk": "UK",
+      "on-click": "hyprctl switchxkblayout current next",
+      "on-click": "hyprctl switchxkblayout current next",
+      "on-click": "hyprctl switchxkblayout current next",
       "tooltip": false
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "sway/window": {
-      "max-length": 42
+    "hyprland/window": {
+      "max-length": 30
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
@@ -76,39 +84,6 @@
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "tray": {
         // "icon-size": 21,
@@ -209,6 +184,8 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "bluetooth": {
+      "format": "",
+      "format-no-controller": "",
       "on-click": "blueman-manager",
       "tooltip-format": "{controller_alias}\t{controller_address}",
 	    "tooltip-format-connected": "{num_connections} connected\n\n{device_enumerate}"
