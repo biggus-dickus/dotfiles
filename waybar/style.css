@@ -26,11 +26,11 @@
   margin-right: 4px;
   background-color: rgba(0, 43, 51, .85);
 }
-#workspaces button:not(.focused):hover {
+#workspaces button:not(.active):hover {
 	background-color: rgba(0,153,153,1);
 }
-#workspaces button.focused {
-	background-color: rgba(0, 119, 179, .6);
+#workspaces button.active {
+	background-color: rgb(0,153,153);
 }
 
 #workspaces button.empty {
@@ -41,6 +41,7 @@
 #backlight,
 #battery,
 #bluetooth,
+#clock,
 #cpu,
 #memory,
 #temperature,
@@ -52,10 +53,6 @@
 #custom-menu,
 #language {
   margin: 0 4px;
-}
-
-#clock {
-  margin-right: 4px;
 }
 
 #mode {
@@ -74,6 +71,10 @@
 #idle_inhibitor.activated {
     color: #2dcc36;
 }
+#idle_inhibitor.deactivated {
+  opacity: .5;
+}
+
 #pulseaudio.muted {
     color: #cc3436;
 }

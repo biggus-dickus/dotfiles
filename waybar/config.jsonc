@@ -3,9 +3,9 @@
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 28, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    // "width": 1280,
     "spacing": 4, // Gaps between modules
-    // Choose the order of the modules
+    "output": "eDP-2",
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -37,11 +37,15 @@
         "1": "",
         "2": "",
         "3": "",
-        "4": "",
-        "5": "",
-        "urgent": "",
-  //   "active": "",
-        "default": ""
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "urgent": ""
+       // "active": "󰮯",
+       // "default": "󰊠"
       },
       "sort-by-number": true
     },
@@ -65,25 +69,41 @@
       "max-length": 30
     },
     "idle_inhibitor": {
-      "format": "{icon}",
+      "format": "{icon}", 
       "format-icons": {
         "activated": "",
         "deactivated": ""
-      }
+      },
+      "tooltip-format-activated": "Sleep inhibition on",
+      "tooltip-format-deactivated": "Sleep inhibition off"
     },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+      "format": "{:%a %d %b %H:%M}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "on-scroll": 1,
+        "mode-mon-col": 3,
+        "format": {
+          "months":     "<span color='#fdf6e3'><b>{}</b></span>",
+          "days":       "<span color='#c7ccd1'><b>{}</b></span>",
+          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+          "today":      "<span background='#f2777a' color='#fdf6e3'><b>{}</b></span>"
+        }
+      },
+      "actions": {
+        "on-click-right": "mode"
+      }
     },
     "cpu": {
-        "format": "  {usage}%"
+        "format": "  {usage}%"
     },
     "memory": {
-        "format": " {percentage}%",
+        "format": " {percentage}%",
         "interval": 10
     },
     "temperature": {
@@ -97,7 +117,8 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon}  {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        //"format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-icons": ["", "󰃠"],
         "tooltip": false
     },
     "battery": {
@@ -130,17 +151,15 @@
       }
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "   {signalStrength}%",
+        "format-wifi": "{bandwidthDownBits:>} 󰶡  {bandwidthUpBits:>} 󰶣",
         "format-ethernet": "  {ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "   {signalStrength}%",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "interval": 30
+        "interval": 2
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -150,7 +169,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
@@ -163,7 +182,8 @@
       "format-no-controller": "",
       "on-click": "blueman-manager",
       "tooltip-format": "{controller_alias}\t{controller_address}",
-	    "tooltip-format-connected": "{num_connections} connected\n\n{device_enumerate}"
+	    "tooltip-format-connected": "{device_enumerate}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%"
     },
     "custom/power": {
       "format" : "⏻ ",
@@ -182,6 +202,6 @@
       "return-type": "json",
       "format": "{}",
       "tooltip": true,
-      "interval": 3600
+      "interval": 1800
     }
 }
