@@ -1,41 +1,53 @@
 * {
   border: none;
-  font-family: "Fira Sans Semibold", Roboto, Arial, sans-serif;
+  font-family: "CaskaydiaCove Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
   font-size: 12px;
-  color: #ffffff;
+  font-weight: bold;
 }
 
 #waybar {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, .33);
+  box-shadow: none;
 }
 
 #window {
-  margin-left: 12px;
+  margin: 0 1em;
+}
+window#waybar.empty #window {
+  margin: 0;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-  padding: 4px;
+  /*background-color: rgba(29,31,46, 0.95);*/
+  background-color: rgba(15,27,53,0.9);
+  padding: 3px 6px;
+  margin: 5px 0;
+  border-radius: 10px;
+  color: #eee;
 }
 
-/*-----modules indv----*/
 #workspaces button {
-  padding: 1px 5px;
-  border-radius: 50%;
-  margin-right: 4px;
-  background-color: rgba(0, 43, 51, .85);
+  border-radius: 10px;
+  color: #888888;
+  padding: 4px 8px;
+  margin: 0 2px;
+  font-weight: 700;
 }
+
 #workspaces button:not(.active):hover {
-	background-color: rgba(0,153,153,1);
+  background-color: rgba(97, 175, 239, 0.2);
 }
+
 #workspaces button.active {
-	background-color: rgb(0,153,153);
+  background-color: #61afef;
+  color: #ffffff;
 }
 
 #workspaces button.empty {
   background-color: transparent;
-  border: 1px solid rgba(0, 43, 51, .85);
+  border: 1px solid rgba(97, 175, 239, 0.2);
 }
 
 #backlight,
@@ -52,41 +64,79 @@
 #mode,
 #custom-menu,
 #language {
-  margin: 0 4px;
+  padding: 0 4px;
+  margin: 0 2px;
+  border-radius: 6px;
+}
+
+#backlight:hover,
+#battery:hover,
+#bluetooth:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-media:hover,
+#mode:hover,
+#custom-menu:hover,
+#language:hover {
+  background-color: rgba(70, 75, 90, 0.9);
+}
+
+#bluetooth.off {
+  opacity: .42;
+}
+
+#bluetooth.connected {
+  color: #00bfff;
 }
 
 #mode {
-    color: #cc3436;
-    font-weight: bold;
+  color: #cc3436;
+  font-weight: bold;
 }
 
 #custom-power {
-    background-color: rgba(0,119,179,0.6);
-    border-radius: 50%;
-    margin: 5px 5px;
-    padding: 1px 1px 1px 6px;
+  color: #ff4040;
+  padding: 0 10px 0 8px;
+  border-radius: 50%;
+  margin-left: 4px;
+}
+
+#custom-power:hover {
+  background-color: #ff8d8d;
 }
 
 /*-----Indicators----*/
+#idle_inhibitor {
+  margin-right: 8px;
+}
 #idle_inhibitor.activated {
-    color: #2dcc36;
+  color: #2dcc36;
 }
 #idle_inhibitor.deactivated {
   opacity: .5;
 }
 
 #pulseaudio.muted {
-    color: #cc3436;
+  color: #cc3436;
+}
+
+#battery.full,
+#battery.good {
+  color: #28cd41;
 }
 #battery.charging {
-    color: #2dcc36;
+  color: #2dcc36;
 }
 #battery.warning:not(.charging) {
-	color: #e6e600;
+  color: #e6e600;
 }
 #battery.critical:not(.charging) {
-    color: #cc3436;
+  color: #cc3436;
 }
+
 #temperature.critical {
-    color: #cc3436;
+  color: #cc3436;
 }
