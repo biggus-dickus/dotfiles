@@ -60,7 +60,6 @@ window#waybar.empty #window {
 #network,
 #pulseaudio,
 #custom-media,
-#tray,
 #mode,
 #custom-menu,
 #language {
@@ -87,7 +86,6 @@ window#waybar.empty #window {
 #bluetooth.off {
   opacity: .42;
 }
-
 #bluetooth.connected {
   color: #00bfff;
 }
@@ -99,13 +97,15 @@ window#waybar.empty #window {
 
 #custom-power {
   color: #ff4040;
-  padding: 0 10px 0 8px;
-  border-radius: 50%;
+  padding: 0 10px 0 16px;
+  border-left: 1px solid #182b54;
   margin-left: 4px;
 }
 
-#custom-power:hover {
-  background-color: #ff8d8d;
+#tray {
+  padding: 0 2px 0 14px;
+  border-left: 1px solid #182b54;
+  margin: 0 2px;
 }
 
 /*-----Indicators----*/
