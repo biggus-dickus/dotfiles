@@ -1,8 +1,7 @@
-/* https://cloudninja.pw/docs/wofi.html */
+/* https://cloudninja.pw/docs/wofi.htrl */
 
 window {
-  border-radius: 12px;
-  background-color: transparent;
+  background: transparent;
   font-size: 14px;
 }
 
@@ -15,7 +14,6 @@ window {
 
 #inner-box {
   padding: 12px;
-  background-color: rgb(17, 24, 39);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 0;
 }
