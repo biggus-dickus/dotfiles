@@ -102,6 +102,13 @@ window#waybar.empty #window {
   margin-left: 4px;
 }
 
+#custom-launcher {
+  font-size: 24px;
+  padding: 0 8px;
+  margin-right: 8px;
+  color: #08c;
+}
+
 #tray {
   padding: 0 2px 0 14px;
   border-left: 1px solid #182b54;

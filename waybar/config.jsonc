@@ -6,8 +6,9 @@
   //"height": 28, // Waybar height (to be removed for auto height)
   // "width": 1280,
   "spacing": 4, // Gaps between modules
-  "output": "eDP-2",
+  "output": "!HDMI-A-1",
   "modules-left": [
+    "custom/launcher",
     "hyprland/workspaces",
     "hyprland/window"
   ],
@@ -204,5 +205,10 @@
     "format": "{}",
     "tooltip": true,
     "interval": 1800
+  },
+  "custom/launcher": {
+    "format": "",
+    "on-click": "wofi --show drun",
+    "tooltip": false
   }
 }
